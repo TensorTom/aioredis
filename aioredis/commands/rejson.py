@@ -42,7 +42,8 @@ class JSONCommandsMixin:
         Get the object stored as a JSON value at ``key``
         ``paths`` is zero or more paths, and defaults to root path
         """
-        return await self.execute(b'JSON.GET', key, *paths)
+        result = await self.execute('JSON.GET', key, *paths)
+        return self.decode(result)
 
     async def delete(self, key, path='.'):
         """
@@ -55,7 +56,8 @@ class JSONCommandsMixin:
         Gets the objects stored as a JSON values under ``path`` from
         ``keys``
         """
-        return await self.execute(b'JSON.MGET', *keys, path)
+        results = await self.execute('JSON.MGET', *keys, path)
+        return [self.decode(obj) for obj in results]
 
     async def type(self, key, path='.'):
         """
