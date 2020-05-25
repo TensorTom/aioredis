@@ -25,6 +25,7 @@ Pipelining support                  Yes
 Pub/Sub support                     Yes
 SSL/TLS support                     Yes
 Sentinel support                    Yes
+ReJSON support                      Yes
 Redis Cluster support               WIP
 Trollius (python 2.7)               No
 Tested CPython versions             `3.5.3, 3.6, 3.7 <travis_>`_ [1]_
